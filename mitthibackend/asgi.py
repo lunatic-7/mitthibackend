@@ -8,14 +8,12 @@ https://docs.djangoproject.com/en/4.0/howto/deployment/asgi/
 """
 
 import os
-
+import django
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mitthibackend.settings')
+django.setup()
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 import app.routing
-from django.conf import settings
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mitthibackend.settings')
-settings.configure()
 
 application = ProtocolTypeRouter({
     'http': get_asgi_application(),
