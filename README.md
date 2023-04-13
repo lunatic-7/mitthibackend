@@ -1,0 +1,2 @@
+# mitthibackend
+Django chat app
